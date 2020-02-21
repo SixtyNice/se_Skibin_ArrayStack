@@ -147,6 +147,17 @@ public class ArrayStack {
     public Object pop() {
         Object temp;
 
+        boolean empty = true;
+        for (int i = 0; i < stack.length; i++) {
+            if (stack[i] != null) {
+                empty = false;
+                break;
+            }
+        }
+        if (empty) {
+            return null;
+        }
+
         temp = peek();
 
         Object[] stash = new Object[stack.length - 1];
